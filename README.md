@@ -1,4 +1,4 @@
-# SoftI2C_Shared_CLS
+# SoftI2C-Shared-CLS
 
 Allows the use of multiple non-programmable I2C devices with the same address while using around half as many GPIO pins.
 
@@ -14,7 +14,7 @@ N devices with the same address = 1 SCL pin + N SDA pins. All lanes share one cl
 ## Basic Usage
 
 ```cpp
-#include "SoftI2C_Shared_CLS.h"
+#include "SoftI2C-Shared-CLS.h"
 
 Lane lanes[] = { Lane(13), Lane(12) };
 Bus<2> myBus(11, lanes); // shared SCL on pin 11

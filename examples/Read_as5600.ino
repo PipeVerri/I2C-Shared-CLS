@@ -1,4 +1,4 @@
-#include "SoftI2C_Shared_CLS.h"
+#include "SoftI2C-Shared-CLS.h"
 
 // Each I2C device is a lane. The pins for their SDA's are passed
 Lane lanes[] = { Lane(13), Lane(12) };
