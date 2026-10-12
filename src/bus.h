@@ -6,7 +6,7 @@ template <uint8_t N> // Let the compiler figure out N
 class Bus {
     private:
         uint8_t scl_pin;
-        Lane* (&lanes)[N];
+        Lane (&lanes)[N];
         uint8_t us_delay;
         bool scl_state;
 
@@ -26,7 +26,7 @@ class Bus {
         }
     
     public:
-        Bus(uint8_t _scl_pin, Lane* (&_lanes)[N], uint8_t _us_delay = 5):
+        Bus(uint8_t _scl_pin, Lane (&_lanes)[N], uint8_t _us_delay = 5):
             scl_pin(_scl_pin),
             lanes(_lanes),
             us_delay(_us_delay),

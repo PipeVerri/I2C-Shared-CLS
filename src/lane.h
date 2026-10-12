@@ -47,8 +47,8 @@ class Lane {
         // will_read_again indicates if other bytes are expected to follow the one being read or not
         void read(bool will_read_again);
         // Used by the controller
-        void on_raise();
-        void on_fall();
+        void on_scl_raise();
+        void on_scl_fall();
         // Status checks
         bool busy() { return state != IDLE; }
         uint8_t get_last_read_byte(); // Doesn't modify this

@@ -87,7 +87,7 @@ void Lane::stop() {
 }
 
 // Controller interfaces
-void Lane::on_raise() {
+void Lane::on_scl_raise() {
   switch (state) {
     case START:
       lower_sda();       // Drop SDA while SCL raises
@@ -160,7 +160,7 @@ void Lane::on_raise() {
   }
 }
 
-void Lane::on_fall() {
+void Lane::on_scl_fall() {
   switch (state) {
     case START:
       break;  // Only send the start sequence when SCL is high
