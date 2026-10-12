@@ -14,6 +14,12 @@ void loop() {
     lanes[0].start(0x36, START_WRITING) ; lanes[1].start(0x36, START_WRITING); // Pass the 7 bit address and if it's R/W(sets the last bit)
     while (lanes[0].busy() || lanes[1].busy()) { myBus.step(); } // myBus.step() controls the clock and calls the lanes' on_scl_raise and on_scl_fall methods
 
+    // Check if the lanes replied with an ACK.
+    if (!lanes[0].successful_write || !lanes[1].successful_write) {
+        Serial.println("Couldn't communicate with both lanes");
+        while (true) { ; }
+    }
+
     // Send a write to move the register to the RAW_ANGLE address
     lanes[0].write(0x0C) ; lanes[1].write(0x0C);
     while (lanes[0].busy() || lanes[1].busy()) { myBus.step(); }
